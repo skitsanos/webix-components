@@ -18,8 +18,6 @@ webix.protoUI({
                 style = 'border-radius: 50%';
             }
             this.$view.innerHTML = `<img src="https://www.gravatar.com/avatar/${hash}?s=${this.config.height-2}" style="${style}"/>`;
-
-            console.log(this.config);
         });
 
         this.$view.className += ' webix_gravatar';
@@ -37,7 +35,6 @@ webix.protoUI({
 
     $setSize: function (x, y)
     {
-        console.log(x,y)
         if (webix.ui.view.prototype.$setSize.call(this, x, y))
         {
             const src = this.$view.firstChild.getAttribute('src').split('?')[0];
