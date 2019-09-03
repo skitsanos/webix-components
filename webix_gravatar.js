@@ -17,7 +17,7 @@ webix.protoUI({
             {
                 style = 'border-radius: 50%';
             }
-            this.$view.innerHTML = `<img src="https://www.gravatar.com/avatar/${hash}?s=${this.config.height-2}" style="${style}"/>`;
+            this.$view.innerHTML = `<img src="https://www.gravatar.com/avatar/${hash}?s=${this.config.height - 2}" style="${style}"/>`;
         });
 
         this.$view.className += ' webix_gravatar';
@@ -35,10 +35,12 @@ webix.protoUI({
 
     $setSize: function (x, y)
     {
-        if (webix.ui.view.prototype.$setSize.call(this, x, y))
+        if (webix.ui.view.prototype.$setSize.call(this, x, x))
         {
+            const size = this.$view.style.width;
             const src = this.$view.firstChild.getAttribute('src').split('?')[0];
-            this.$view.firstChild.setAttribute('src', `${src}?s=${x}`);
+            this.$view.firstChild.setAttribute('src', `${src}?s=${size}`);
         }
-    }
+    },
+    on: {}
 }, webix.ui.view);
